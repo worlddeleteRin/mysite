@@ -1,0 +1,35 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iot</title>
+</head>
+<body>
+
+{% include './includes_css.html' %}
+{% include './includes_js.html' %}
+
+
+
+{% block header %}
+    <div class="main__header__block__wrapper">
+        <div class="main__header__block">
+            {% include './blocks/header.html' %}
+        </div>
+    </div>
+
+{% endblock header %}
+
+
+{% block content %}
+{% endblock content %}
+
+
+</body>
+
+<script>
+  
+</script>
+
+</html>
