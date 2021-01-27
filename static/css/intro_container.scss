@@ -36,7 +36,6 @@
     flex: 1;
     width: 50%;
     img {
-        border: 2px solid red;
         // max-width: 800px;
         object-fit: contain;    
         height: 100%;
@@ -69,14 +68,14 @@
 @media (max-width: 991px) {
     .case-main {
         padding-bottom: 8%;
-        // display: block;
+        display: block;
         height: auto;
         flex-direction: column;
         // align-items: center;
         // align-content: center;
     }
     .case-main-text {
-        height: 200px;
+        // height: 200px;
         width: 90%;
     }
     .case-main-img-wrapper {

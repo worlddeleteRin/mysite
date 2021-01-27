@@ -24,7 +24,6 @@
   width: 50%;
 }
 .case-main-img-wrapper img {
-  border: 2px solid red;
   object-fit: contain;
   height: 100%;
   width: 100%;
@@ -56,12 +55,12 @@
 @media (max-width: 991px) {
   .case-main {
     padding-bottom: 8%;
+    display: block;
     height: auto;
     flex-direction: column;
   }
 
   .case-main-text {
-    height: 200px;
     width: 90%;
   }
 

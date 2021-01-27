@@ -1,0 +1,75 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="aboutus_wrapper">
+
+    <div class="page__header__container">
+        <img class="page__header__container__img" 
+        src="{% static 'images/about_bg.jpg' %}" alt="">
+        <div class="page__header__container__bg">
+        </div>
+        <div class="page__header__container__title">
+            <span>
+                о нас
+            </span>
+        </div>
+    </div>
+
+    </div>
+
+    {% include './blocks/we_can.html' %}
+
+    {% include './blocks/serv_container.html' %}
+
+    <div class="benefits_container">
+        <div class="benefits_container_info">
+            <div class="nice_title2 center benefits_container__title">
+            <span>
+                Стратегия
+            </span>
+            </div>
+            <div class="benefits_container_info_list">
+                <div class="benefits_container_info_item">
+                    <div class="benefits_container_info_item__title">
+                        <i class="fa fa-atom"></i>
+                        <span>
+                            Качественная и гибкая разработка
+                        </span>
+                    </div>
+                    {% comment %} <div class="benefits_container_info_item__desc">
+                        Выделенные проектные группы
+                    </div> {% endcomment %}
+                </div>
+                <div class="benefits_container_info_item">
+                    <div class="benefits_container_info_item__title">
+                        <i class="fa fa-atom"></i>
+                        <span>
+                        Современные и надежные технологии
+                        </span>
+                    </div>
+                </div>
+                <div class="benefits_container_info_item">
+                    <div class="benefits_container_info_item__title">
+                        <i class="fa fa-atom"></i>
+                        <span>
+                            Персональный подход к каждому клиенту
+                        </span>
+                    </div>
+                </div>
+                <div class="benefits_container_info_item">
+                    <div class="benefits_container_info_item__title">
+                        <i class="fa fa-atom"></i>
+                        <span>
+                        Выделенные проектные группы
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include './blocks/request_call.html' %}
+
+{% endblock content %}

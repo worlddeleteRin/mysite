@@ -25,11 +25,166 @@
 {% block content %}
 {% endblock content %}
 
+    {% include './blocks/footer.html' %}
+
+    {% include './blocks/popup_cotact.html' %}
+
+    {% include './blocks/popup_complete.html' %}
+
 
 </body>
 
 <script>
   
+function sendCall(call_type) {
+    console.log('button is clicked')
+    console.log(call_type)
+    if (call_type == 'project') {
+        var call_name = $("input[name='call_name']").val()
+        var call_phone = $("input[name='call_phone']").val()
+        var call_mail = $("input[name='call_mail']").val()
+        var call_about = $("input[name='call_about']").val()
+        $.ajax({
+            url: "{% url 'main:call_request' %}",
+            data: {
+                'call_type': call_type,
+                'call_name': call_name,
+                'call_phone': call_phone,
+                'call_mail': call_mail,
+                'call_about': call_about,
+            }, success: function(data) {
+                openThankPopup()
+            }
+        });
+    }
+    if (call_type == 'phone_only') {
+        var call_phone = $("input[name='call_phone2']").val()
+        $.ajax({
+            url: "{% url 'main:call_request' %}",
+            data: {
+                'call_type': call_type,
+                'call_phone': call_phone,
+            }, success: function(data) {
+                openThankPopup()
+            }
+        });
+    }
+    if (call_type == 'popup_phone') {
+        var call_phone = $("input[name='call_phone3']").val()
+        $.ajax({
+            url: "{% url 'main:call_request' %}",
+            data: {
+                'call_type': 'phone_only',
+                'call_phone': call_phone,
+            }, success: function(data) {
+                closeContactPopup()
+                openThankPopup()
+            }
+        });
+    }
+}
+
+function checkForm(call_type) {
+    var passed = true
+    if (call_type == 'project') {
+        var call_name = $("input[name = 'call_name']")
+        var call_phone = $("input[name = 'call_phone']")
+        if ($(call_name).val().length < 1) {
+            $(call_name).addClass('alert')
+            passed = false
+        } else {
+            $(call_name).removeClass('alert')
+        }
+        if ($(call_phone).val().length < 1) {
+            $(call_phone).addClass('alert')
+            passed = false
+        } else {
+            $(call_phone).removeClass('alert')
+        }
+        return passed
+    }
+    if (call_type == 'phone_only') {
+        var call_phone = $("input[name = 'call_phone2']")
+        if ($(call_phone).val().length < 1) {
+            $(call_phone).addClass('alert')
+            passed = false
+        } else {
+            $(call_phone).removeClass('alert')
+        }
+        return passed
+    }
+    if (call_type == 'popup_phone') {
+        var call_phone = $("input[name = 'call_phone3']")
+        if ($(call_phone).val().length < 1) {
+            $(call_phone).addClass('alert')
+            passed = false
+        } else {
+            $(call_phone).removeClass('alert')
+        }
+        return passed
+    }
+}
+function openThankPopup() { 
+    $("#thank_popup").addClass("show")
+    $(".contacts_popup_bg").addClass("show")
+}
+function closeThankPopup() { 
+    $("#thank_popup").removeClass("show")
+    $(".contacts_popup_bg").removeClass("show")
+}
+
+$('#send_call_phone').click(function() {
+    var call_type = 'project'
+    var passed = checkForm(call_type)
+    if (passed == true) {
+        sendCall(call_type)
+    }
+})
+
+$('#send_call_phone2').click(function() {
+    var call_type = 'phone_only'
+    var passed = checkForm(call_type)
+    if (passed == true) {
+        sendCall(call_type)
+    }
+})
+$('#send_call_phone3').click(function() {
+    var call_type = 'popup_phone'
+    var passed = checkForm(call_type)
+    if (passed == true) {
+        sendCall(call_type)
+    }
+})
+
+$('#thank_popup_close').click(function() {
+    closeThankPopup()
+})
+
+$(".main__header__phone__callme").click(function() {
+    openContactPopup()
+})
+$(".popup_contact_close").click(function() {
+    closeContactPopup()
+})
+$(".popup_contact_bg").click(function() {
+    closeContactPopup()
+})
+
+$(".sale__container__button").click(function() {
+    openContactPopup()
+})
+
+function openContactPopup() {
+    $(".popup_contact").addClass("show")
+    $(".popup_contact_bg").addClass("show")
+}
+function closeContactPopup() {
+    $(".popup_contact").removeClass("show")
+    $(".popup_contact_bg").removeClass("show")
+}
+
+
+
 </script>
 
 </html>

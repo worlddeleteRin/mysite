@@ -5,7 +5,7 @@
 <div class="main__header__second__mobile__logo">
     <a class="header__second__logo mobile__logo"
     href="{% url 'main:index' %}">
-        <img src="https://placehold.it/400x400" alt="">
+        <img src="{% static 'images/main_logo.svg' %}" alt="">
     </a>
 
     <!-- <div class="header__second__search">
@@ -26,7 +26,7 @@
 <div class="main__header__second">
     <a class="header__second__logo logo__big"
     href="{% url 'main:index' %}">
-        <img src="https://placehold.it/1000x1000" alt="">
+        <img src="{% static 'images/main_logo.svg' %}" alt="">
     </a>
 
     <div class="header__second__catalog">
@@ -36,19 +36,19 @@
             </a>
         </div>
         <div class="header__second__catalog__items">
-            <a href="{% url 'main:index' %}">
+            <a href="{% url 'main:index' %}#services_anchor">
                 Услуги
             </a>
         </div>
         <div class="header__second__catalog__items">
             <a
-            href="{% url 'main:index' %}">
+            href="{% url 'main:aboutus' %}">
                 о компании
             </a>
         </div>
         <div class="header__second__catalog__items">
             <a
-            href="{% url 'main:index' %}">
+            href="{% url 'main:contacts' %}">
                 Контакты
             </a>
         </div>
@@ -127,24 +127,19 @@
             class="mobile__nav">
                 Главная
             </a>
-            <a href="{% url 'main:index' %}"
+            <a href="{% url 'main:index' %}#services_anchor"
             class="mobile__nav">
                 Услуги
             </a>
             <a
-            href="{% url 'main:index' %}"
+            href="{% url 'main:aboutus' %}"
             class="mobile__nav">
-                Меню
+                о компании
             </a>
             <a
-            href="{% url 'main:index' %}"
+            href="{% url 'main:contacts' %}"
             class="mobile__nav">
-                Проекты
-            </a>
-            <a
-            href="{% url 'main:index' %}"
-            class="mobile__nav">
-                О Нас
+                контакты
             </a>
     </div>
 </div>

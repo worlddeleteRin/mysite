@@ -1,11 +1,108 @@
 @import './css/vars.scss';
 @import './css/fonts.scss';
 @import './css/header.scss';
+@import './css/services.scss';
 @import './css/intro_container.scss';
+@import './css/serv_container.scss';
+@import './css/contacts_container.scss';
+@import './css/footer.scss';
+@import './css/we_can.scss';
+@import './css/aboutus.scss';
+@import './css/request_call.scss';
+@import './css/design.scss';
 
 
 
 
+
+.nice_button {
+    a {
+        padding: 20 30;
+        text-transform: uppercase;
+        font-size:  12px;
+        color: white;
+        background-color: $main-color;
+        text-decoration: none;
+        font-family: 'main_bold';
+        letter-spacing: 1.5;
+        &:hover {
+            background-color: $main-color-hover;
+            cursor: pointer;
+        }
+    }
+    span {
+        padding: 20 30;
+        text-transform: uppercase;
+        font-size:  12px;
+        color: white;
+        background-color: $main-color;
+        text-decoration: none;
+        font-family: 'main_bold';
+        letter-spacing: 1.5;
+        &:hover {
+            background-color: $main-color-hover;
+            cursor: pointer;
+        }
+    }
+}
+.nice_button.thin {
+    span {
+        padding: 15 30;
+    }
+}
+.nice_button.red {
+    span {
+        background-color: $nice-red;
+    }
+}
+.nice_button.wide {
+    span {
+        padding: 20 50; 
+    }
+}
+.underline {
+    background-image: linear-gradient(to bottom, transparent 30%, #549bff 21%);
+    background-position: 0 90%;
+    background-repeat: no-repeat;
+    background-size: 0% 0.875rem;
+    transition: background-size 0.8s ease-in-out 0.6s;
+    background-size: 100% 2rem;
+    transition-delay: 0s;
+}
+.underline.red {
+    background-image: linear-gradient(to bottom, transparent 30%, #ff3333 21%);
+}
+.underline.blue {
+    background-image: linear-gradient(to bottom, transparent 30%, #549bff 21%);
+}
+.underline.green {
+    background-image: linear-gradient(to bottom, transparent 30%, #46ffb5 21%);
+}
+.underline.yellow {
+    background-image: linear-gradient(to bottom, transparent 30%, #ffff44 21%);
+}
+.underline.orange {
+    background-image: linear-gradient(to bottom, transparent 30%, #ff9e62 21%);
+}
+.underline.violet {
+    background-image: linear-gradient(to bottom, transparent 30%, #db70ff 21%);
+}
+
+.nice_title2 {
+    span {
+        font-size: calc(22px + 2vw);
+        font-family: 'main_ebold';
+    }
+}
+.nice_title2.center {
+    text-align: center;
+}
+.nice_title2.light {
+    span {
+        font-size: calc(17px + 1.5vw);
+        font-family: 'main_ebold';
+    }
+}
 
 
 .nice_title {
@@ -43,60 +140,219 @@
     font-size: calc(1.7375rem + 1vw);
     background-position: 0 150%;
 }
+.sale__container {
+    position: relative;
+    oveflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    // background-color: rgb(14, 19, 18);
+    height: calc(250px + 10vw);
+    &__title {
+        padding: 40 0;
+        color: white;
+        font-family: 'main_ebold';
+        font-size: calc(20px + 2vw);
+    }
+    &__button {
+        padding: 40 0;
+    }
+    &__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+    }
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 0.8;
+        z-index: -1;
+    }
+}
 
+.benefits__wrapper {
+    padding-top: calc(20px + 3vw);
+    padding-bottom: calc(10px + 1vw);
+}
+.benefits {
+    // height: calc(500px + 4vw);
+    padding-top: calc(20px + 2vw);
+    // padding-bottom: calc(20px + 4vw);
+    display: flex;
+    &__image {
+        position: relative;
+        overflow: hidden;
+        width: 50%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    &__items {
+        width: 50%;
+        &__item {
+            display: flex;
+            align-items: center;
+            margin-top: calc(20px + 4vw);
+            margin-bottom: calc(20px + 4vw); 
+            i { 
+                margin-left: calc(17px + 2vw);
+                margin-right: calc(17px + 2vw);
+                color: $main-color;
+                font-size: calc(13px + 1vw);
+            }
+            span {
+                font-family: 'main_regular';
+                font-size: calc(10px + 0.5vw);
+            }
+        }
+    }
+}
 
+@media (max-width: 991px) {
+    .benefits {
+        padding-top: calc(1px + 1vw);
+        flex-direction: column;
+        &__image {
+            width: 100%;
+            height: 500px;
+        }
+        &__items {
+            width: 99%;
+            &__item {
+                // margin: 50 0;
+            }
+        }
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: 'main_medium';
     background-color: $bg-nice;
 }
 
-// services here
+
+// contacts popup
+
+.contacts_popup {
+    visibility: hidden;
+    width: calc(100px + 55vw);
+    height: calc(250px + 13vw);
+    background-color: white;
+    z-index: 10;
+    position: fixed;
+    transform: scale(2);
+    top: -200%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 0px 10px -4px #6a5acd;
+    transition: top 1s;
+}
+.contacts_popup.show {
+    visibility: visible;
+    top: 50%;
+}
+
+.contacts_popup_subtitle {
+    padding: calc(14px + 1vw);
+    text-align: center;
+}
+
+.contacts_popup_button {
+    text-align: center;
+    padding: 40 0;
+}
+.contacts_popup_bg {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0.7;
+    z-index: 9;
+}
+.contacts_popup_bg.show {
+    visibility: visible;
+}
 
 
-.adv__wrapper {
-    //    background-color: $nice-black2;
-        padding: 30 0;
-        position: relative;
+// popup contact
+
+.popup_contact {
+    visibility: hidden;
+    position: fixed;
+    z-index: 20;
+    top: -200%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(250px + 40vw);
+    // height: 400px;
+    background-color: white;
+    box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75);
+    transition: top 1s ease;
+}
+.popup_contact.show {
+    visibility: visible;
+    top: 50%;
+}
+.popup_contact_content {
+    padding: calc(25px + 2vw);
+}
+.popup_contact_content_description {
+    padding: calc(5px + 1vw);
+    text-align: center;
+    span {
+        font-size: calc(13px + 0.7vw);
+        font-family: 'main_regular';
     }
-    
-    .adv__main {
-        padding: 40 0; 
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        align-content: center;
-        justify-content: center;
+}
+.popup_contact_content_form_btn {
+    text-align: center;
+    padding: 60 0 0 0;
+}
+.popup_contact_content_form {
+    padding: 10 0 20 0;
+    &__input {
+        letter-spacing: 1.5;
+        width: 100%;
     }
-    
-    .adv__main__item {
-        height: 50px;
-        max-width: 400px;
-        min-width: 300px;
-        width: 300px;
-        margin: 20;
-        padding: 50 0;
-        text-align: left;
-        position: relative;
-    
-        &__title {
-            padding: 0 10;
-            font-size: 15px;
-            font-family: 'main_semi_bold';
-        }
-        &__counter {
-            user-select: none;
-            position: absolute;
-            top: -20;
-            left: -25;
-            font-size: 95px;
-            color: rgba(189, 216, 244, 0.354);
-        }
-    
-        @media (max-width: 740px) {
-            width: 400px;
-        }
-    }
-    
-    
-
-
+}
+.popup__contact__close {
+    position: absolute;
+    top: 30;
+    right: 30;
+    transform: scale(1.4);
+    cursor: pointer;
+}
+.popup_contact_bg {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0.7;
+}
+.popup_contact_bg.show {
+    visibility: visible;
+}
