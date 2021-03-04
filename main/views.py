@@ -57,6 +57,7 @@ def adv(request):
     
     
 def call_request(request):
+    print('start sending call request')
     time = datetime.now()
     time = time.strftime("%Y-%m-%d-%H:%M")
     current_time = f'Время заявки: {time} \n'

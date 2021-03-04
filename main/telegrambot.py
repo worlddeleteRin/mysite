@@ -1,7 +1,7 @@
 import requests
 
 api_url = 'https://api.telegram.org/bot'
-API_TOKEN = '1550294977:AAHK7NBmyfdzewj2FJ1cGS2jizzURPtAZM8'
+API_TOKEN = '1593270625:AAGIEt6dQVoYvSydjyJ5Nx7bV6zYM8v2CBI'
 main_url = api_url + API_TOKEN + '/'
 chat_id = 372082477
 
