@@ -10,6 +10,8 @@ from django.template.loader import render_to_string
 from datetime import datetime
 from .telegrambot import *
 
+from secure.api_tokens import * 
+
 # Create your views here.
 
 def index(request):
@@ -83,4 +85,28 @@ def politica(request):
 
     }
     return render(request, template, context)
+
+# api to api_url for sites / apps
+def get_api_fabrika_edi(request):
+    try:
+        access_key = request.GET['access_token']
+        if access_key == FABRIKA_EDI_ACCESS_TOKEN:
+            main_url = 'https://food-fabrik.ru/'
+            api_url = 'https://food-fabrik.ru/api/'
+            return JsonResponse({
+                'status': True,
+                'main_url': main_url,
+                'api_url': api_url,
+                'access_token': FABRIKA_EDI_ACCESS_TOKEN_GRANT,
+            })
+        else:
+            return JsonResponse({
+                'status': False,
+            })
+    except:
+        return JsonResponse({
+        'status': False, 
+        })
+
+
     

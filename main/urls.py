@@ -14,4 +14,6 @@ urlpatterns = [
     path('adv', views.adv, name = 'adv'),
     path('call_request', views.call_request, name = 'call_request'),
     path('politica', views.politica, name = 'politica'),
+    # api to api_url for sites / apps
+    path('get_api_fabrika_edi', views.get_api_fabrika_edi, name = 'get_api_fabrika_edi'),
 ]
