@@ -91,8 +91,8 @@ def get_api_fabrika_edi(request):
     try:
         access_key = request.GET['access_token']
         if access_key == FABRIKA_EDI_ACCESS_TOKEN:
-            main_url = 'https://food-fabrik.ru/'
-            api_url = 'https://food-fabrik.ru/api/'
+            main_url = 'https://vkusno.fast-code.ru/'
+            api_url = 'https://vkusno.fast-code.ru/api/'
             return JsonResponse({
                 'status': True,
                 'main_url': main_url,
